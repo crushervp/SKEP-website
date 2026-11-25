@@ -235,38 +235,8 @@
           <a href="#inquiry" class="hover:text-crimson-800 transition-colors py-2">Contact</a>
         </nav>
 
-        <!-- Actions: Google Sheets Sync, Catalog Editor, Quote Basket Button & Mobile Menu Button -->
+        <!-- Actions: Quote Basket Button & Mobile Menu Button -->
         <div class="flex items-center gap-2 sm:gap-2.5">
-          <button
-            type="button"
-            onclick="openSheetsSyncModal()"
-            aria-label="Google Sheets Live Sync"
-            class="inline-flex items-center gap-1.5 px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-300/80 text-xs sm:text-sm font-semibold shadow-2xs transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-700"
-            title="Auto-update APMC rates & chilli photos every Monday & Thursday from Google Sheets"
-          >
-            <svg class="w-4 h-4 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-              <polyline points="14 2 14 8 20 8" />
-              <line x1="16" y1="13" x2="8" y2="13" />
-              <line x1="16" y1="17" x2="8" y2="17" />
-              <polyline points="10 9 9 9 8 9" />
-            </svg>
-            <span class="hidden md:inline">Google Sheets Sync</span>
-            <span class="md:hidden">Sheets</span>
-          </button>
-
-          <button
-            type="button"
-            onclick="openCatalogManager('varieties')"
-            aria-label="Manage Chilli Photos and Details"
-            class="inline-flex items-center gap-2 px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-xl bg-white hover:bg-parchment-100 text-espresso-900 border border-parchment-200 text-xs sm:text-sm font-semibold shadow-2xs transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-crimson-700"
-          >
-            <svg class="w-4 h-4 text-crimson-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-              <circle cx="12" cy="13" r="4" />
-            </svg>
-            <span class="hidden md:inline">Edit / Upload Chillies</span>
-          </button>
 
           <button
             type="button"
@@ -312,30 +282,6 @@
       <a href="#estimator" onclick="toggleMobileMenu(false)" class="block px-3 py-3 rounded-xl text-base font-semibold text-espresso-900 hover:bg-parchment-100">Bulk Estimator</a>
       <a href="#quality" onclick="toggleMobileMenu(false)" class="block px-3 py-3 rounded-xl text-base font-semibold text-espresso-900 hover:bg-parchment-100">Quality &amp; Process</a>
       <a href="#inquiry" onclick="toggleMobileMenu(false)" class="block px-3 py-3 rounded-xl text-base font-semibold text-espresso-900 hover:bg-parchment-100">Contact</a>
-      <button
-        type="button"
-        onclick="toggleMobileMenu(false); openSheetsSyncModal();"
-        class="w-full text-left px-3 py-3 rounded-xl text-base font-bold text-emerald-800 bg-emerald-50/80 hover:bg-emerald-100 flex items-center gap-2"
-      >
-        <svg class="w-4 h-4 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-          <polyline points="14 2 14 8 20 8" />
-          <line x1="16" y1="13" x2="8" y2="13" />
-          <line x1="16" y1="17" x2="8" y2="17" />
-        </svg>
-        <span>Google Sheets Live Sync (Mon / Thu)</span>
-      </button>
-      <button
-        type="button"
-        onclick="toggleMobileMenu(false); openCatalogManager('varieties');"
-        class="w-full text-left px-3 py-3 rounded-xl text-base font-bold text-crimson-800 bg-crimson-50/70 hover:bg-crimson-50 flex items-center gap-2"
-      >
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-          <circle cx="12" cy="13" r="4" />
-        </svg>
-        <span>Edit / Upload Chilli Photos &amp; Details</span>
-      </button>
     </div>
   </header>
 
@@ -392,15 +338,12 @@
                 <div class="flex items-center gap-2">
                   <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
                   <span class="text-[11px] font-bold uppercase tracking-wider text-crimson-800">APMC Mandi Auction Live</span>
-                  <button
-                    type="button"
-                    onclick="openSheetsSyncModal()"
-                    class="ml-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 hover:bg-emerald-200 text-emerald-800 border border-emerald-300 transition-colors inline-flex items-center gap-1 cursor-pointer"
-                    title="Click to manage or refresh Google Sheets live sync"
+                  <span
+                    id="apmc-sync-status-badge"
+                    class="ml-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 inline-flex items-center gap-1"
                   >
-                    <svg class="w-2.5 h-2.5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
-                    <span id="apmc-sync-status-badge">Google Sheet: Auto</span>
-                  </button>
+                    Official Rates
+                  </span>
                 </div>
                 <h3 class="font-serif text-base sm:text-lg font-extrabold text-espresso-900 tracking-tight mt-0.5 uppercase">
                   Shree Kalmeshwara Enterprises
@@ -535,17 +478,9 @@
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                     <path d="M9 12l2 2 4-4" />
                   </svg>
-                  <span id="apmc-sync-footer-note">Updated Mon &amp; Thu Nights via Google Sheets</span>
+                  <span id="apmc-sync-footer-note">Updated Mon &amp; Thu Nights &bull; APMC Byadagi</span>
                 </div>
                 <div class="flex items-center gap-3">
-                  <button
-                    type="button"
-                    onclick="openSheetsSyncModal()"
-                    class="inline-flex items-center gap-1 font-bold text-emerald-800 hover:text-emerald-700 hover:underline"
-                  >
-                    <span>Google Sheets Sync</span>
-                    <svg class="w-2.5 h-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  </button>
                   <a
                     href="#inquiry"
                     class="inline-flex items-center gap-1 font-bold text-crimson-800 hover:text-crimson-700 hover:underline"
@@ -657,11 +592,11 @@
             Our Signature Chilli Varieties
           </h2>
           <p class="text-stone-600 mt-3 text-base">
-            Every lot is graded by ASTA color value, Scoville Heat Units (SHU), pod length, and moisture percentage. Upload your own chilli photos, edit specifications, or add new varieties anytime.
+            Every lot is graded by ASTA color value, Scoville Heat Units (SHU), pod length, and moisture percentage.
           </p>
         </div>
 
-        <!-- Category Filter Tabs & Add Variety Action -->
+        <!-- Category Filter Tabs -->
         <div class="flex flex-col sm:flex-row sm:items-center gap-3">
           <div class="flex flex-wrap gap-2" role="tablist" aria-label="Filter Chilli Varieties">
             <button
@@ -698,17 +633,6 @@
             </button>
           </div>
 
-          <button
-            type="button"
-            onclick="openCatalogManager('new')"
-            class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-espresso-900 hover:bg-crimson-800 text-white text-sm font-semibold shadow-sm transition-colors shrink-0"
-          >
-            <svg class="w-4 h-4 text-terracotta-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
-              <line x1="12" y1="5" x2="12" y2="19" />
-              <line x1="5" y1="12" x2="19" y2="12" />
-            </svg>
-            <span>Add Chilli Variety</span>
-          </button>
         </div>
       </div>
 
@@ -727,7 +651,7 @@
       <div class="max-w-3xl mb-12">
         <span class="text-xs font-bold uppercase tracking-[0.18em] text-terracotta-500">Logistics &amp; Volume Planner</span>
         <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2">
-          Bulk Order &amp; Container Load Estimator
+          Bulk Order Estimator
         </h2>
         <p class="text-stone-300 mt-3 text-base">
           Calculate exact jute/PP bag counts, optimal FCL/LCL ocean container stuffing requirements, and guaranteed quality parameters based on pod bulk density.
@@ -897,6 +821,15 @@
                   </p>
                 </div>
               </div>
+            </div>
+
+            <!-- Estimated Price Cell (Synced from Google Sheets) -->
+            <div class="p-4 rounded-2xl bg-parchment-50 border border-parchment-200 mb-6 flex items-center justify-between gap-3">
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-stone-500 block">Estimated Price</span>
+                <span id="est-price-sub" class="text-[11px] text-stone-500 mt-0.5 block">Submit quote for live lot pricing</span>
+              </div>
+              <span id="est-price-val" class="font-serif text-2xl font-extrabold text-crimson-800 text-right">On Request</span>
             </div>
 
             <!-- Guaranteed Quality Spec Line -->
@@ -1168,9 +1101,10 @@
 
               <button
                 type="submit"
+                id="inq-submit-btn"
                 class="w-full py-4 px-6 rounded-xl bg-crimson-800 hover:bg-crimson-700 text-white font-semibold text-base shadow-lg shadow-crimson-900/20 transition-all duration-200 flex items-center justify-center gap-2"
               >
-                <span>Generate Official Inquiry Ticket</span>
+                <span id="inq-submit-label">Generate Official Inquiry Ticket</span>
                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
@@ -1188,7 +1122,7 @@
                   </svg>
                 </div>
                 <div>
-                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold">
+                  <span id="ticket-sync-status" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold">
                     <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
                     Shree Kalmeshwara Enterprises &bull; Registered
                   </span>
@@ -1297,7 +1231,7 @@
           <h4 class="font-serif text-base font-bold text-white">Navigation</h4>
           <ul class="space-y-2.5 text-sm">
             <li><a href="#varieties" class="hover:text-terracotta-500 transition-colors">Chilli Varieties Catalog</a></li>
-            <li><a href="#estimator" class="hover:text-terracotta-500 transition-colors">Container Load Estimator</a></li>
+            <li><a href="#estimator" class="hover:text-terracotta-500 transition-colors">Bulk Order Estimator</a></li>
             <li><a href="#quality" class="hover:text-terracotta-500 transition-colors">Sortex &amp; Quality Workflow</a></li>
             <li><a href="#inquiry" class="hover:text-terracotta-500 transition-colors">Request Bulk Quote / Samples</a></li>
           </ul>
@@ -1402,607 +1336,6 @@
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===================================================================== -->
-  <!-- CATALOG & CHILLI PHOTO MANAGER MODAL (EDIT / UPLOAD / ADD VARIETIES)  -->
-  <!-- ===================================================================== -->
-  <div id="catalog-manager-modal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-modal="true" role="dialog" aria-labelledby="catalog-modal-title">
-    <!-- Backdrop -->
-    <div onclick="closeCatalogManager()" class="fixed inset-0 bg-espresso-950/70 backdrop-blur-xs transition-opacity"></div>
-
-    <!-- Modal Dialog Box -->
-    <div class="relative min-h-screen flex items-center justify-center p-3 sm:p-6">
-      <div class="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl border border-parchment-200 overflow-hidden my-4">
-        <!-- Modal Header -->
-        <div class="px-6 py-5 bg-espresso-900 text-white flex items-center justify-between gap-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-crimson-800 text-white flex items-center justify-center shrink-0">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-                <circle cx="12" cy="13" r="4" />
-              </svg>
-            </div>
-            <div>
-              <span class="text-[10px] font-bold uppercase tracking-widest text-terracotta-500 block">
-                Shree Kalmeshwara Enterprises &bull; Catalog Studio
-              </span>
-              <h3 id="catalog-modal-title" class="font-serif text-xl font-bold">
-                Upload Chilli Photos &amp; Edit Details
-              </h3>
-            </div>
-          </div>
-
-          <button
-            type="button"
-            onclick="closeCatalogManager()"
-            aria-label="Close Catalog Manager"
-            class="p-2 rounded-xl bg-espresso-800 hover:bg-crimson-800 text-stone-300 hover:text-white transition-colors"
-          >
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-        </div>
-
-        <!-- Mode Switcher Tabs -->
-        <div class="px-6 pt-4 bg-parchment-50 border-b border-parchment-200 flex flex-wrap items-center justify-between gap-3">
-          <div class="flex gap-2">
-            <button
-              type="button"
-              id="tab-btn-varieties"
-              onclick="switchManagerTab('varieties')"
-              class="px-4 py-2.5 rounded-t-xl text-xs sm:text-sm font-bold border-b-2 border-crimson-800 text-crimson-800 bg-white"
-            >
-              Chilli Varieties (Edit / Add New)
-            </button>
-            <button
-              type="button"
-              id="tab-btn-hero"
-              onclick="switchManagerTab('hero')"
-              class="px-4 py-2.5 rounded-t-xl text-xs sm:text-sm font-bold border-b-2 border-transparent text-stone-600 hover:text-espresso-900"
-            >
-              Main Hero Showcase Photo
-            </button>
-          </div>
-
-          <!-- Two-step Safe Reset Button (No confirm() used) -->
-          <div class="pb-2">
-            <button
-              type="button"
-              id="reset-catalog-btn"
-              onclick="handleResetCatalogClick()"
-              class="px-3 py-1.5 rounded-lg border border-parchment-200 bg-white hover:bg-crimson-50 text-stone-600 hover:text-crimson-800 text-xs font-semibold transition-colors"
-            >
-              Reset All to Defaults
-            </button>
-          </div>
-        </div>
-
-        <!-- TAB 1: VARIETIES EDITOR / CREATOR -->
-        <div id="manager-panel-varieties" class="p-6 sm:p-8 space-y-6 max-h-[78vh] overflow-y-auto">
-          <!-- Variety Selector Strip -->
-          <div class="bg-parchment-50 p-4 rounded-2xl border border-parchment-200">
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
-              <span class="text-xs font-bold uppercase tracking-wider text-espresso-800">
-                Select Variety to Edit or Add New:
-              </span>
-              <button
-                type="button"
-                onclick="prepareNewVarietyForm()"
-                class="px-3 py-1.5 rounded-lg bg-crimson-800 hover:bg-crimson-700 text-white text-xs font-bold flex items-center gap-1.5 shadow-2xs"
-              >
-                <span>+ Add New Variety</span>
-              </button>
-            </div>
-            <div id="manager-variety-pills" class="flex flex-wrap gap-2">
-              <!-- Populated dynamically -->
-            </div>
-          </div>
-
-          <!-- Variety Edit / Add Form -->
-          <form id="variety-editor-form" onsubmit="saveVarietyChanges(event)" class="space-y-6">
-            <input type="hidden" id="edit-var-id" value="" />
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-              <!-- Left Column: Photo Upload & Live Preview -->
-              <div class="lg:col-span-5 space-y-3">
-                <label class="block text-xs font-bold uppercase tracking-wider text-espresso-800">
-                  Chilli Photo (Upload from Device or URL)
-                </label>
-
-                <div class="relative aspect-[16/11] rounded-2xl overflow-hidden bg-parchment-100 border-2 border-dashed border-parchment-200 flex items-center justify-center">
-                  <img
-                    id="edit-var-img-preview"
-                    src=""
-                    alt="Uploaded chilli preview"
-                    class="hidden w-full h-full object-cover"
-                  />
-                  <div id="edit-var-svg-preview" class="w-full h-full p-2"></div>
-                </div>
-
-                <!-- File Upload Input Button -->
-                <div class="flex flex-col gap-2">
-                  <label class="cursor-pointer w-full py-3 px-4 rounded-xl bg-espresso-900 hover:bg-crimson-800 text-white text-xs font-bold text-center transition-colors flex items-center justify-center gap-2">
-                    <svg class="w-4 h-4 text-terracotta-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                      <polyline points="17 8 12 3 7 8" />
-                      <line x1="12" y1="3" x2="12" y2="15" />
-                    </svg>
-                    <span>Upload Chilli Photo from Device</span>
-                    <input
-                      type="file"
-                      id="edit-var-file"
-                      accept="image/*"
-                      onchange="handleVarietyImageUpload(event)"
-                      class="hidden"
-                    />
-                  </label>
-
-                  <div class="flex items-center gap-2">
-                    <input
-                      type="url"
-                      id="edit-var-url"
-                      placeholder="Or paste image URL (https://...)"
-                      oninput="handleVarietyUrlInput(this.value)"
-                      class="flex-1 px-3 py-2 rounded-xl bg-parchment-50 border border-parchment-200 text-xs text-espresso-900 focus:outline-none focus:border-crimson-700"
-                    />
-                    <button
-                      type="button"
-                      onclick="clearVarietyCustomImage()"
-                      class="px-3 py-2 rounded-xl bg-parchment-100 hover:bg-parchment-200 text-stone-700 text-xs font-semibold shrink-0"
-                    >
-                      Clear Photo
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Right Column: Chilli Details Inputs -->
-              <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="sm:col-span-2">
-                  <label for="edit-var-name" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">
-                    Chilli Variety Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="edit-var-name"
-                    required
-                    placeholder="e.g., Original Byadagi Dabbi"
-                    class="w-full px-3.5 py-2.5 rounded-xl bg-parchment-50 border border-parchment-200 text-sm font-semibold text-espresso-900 focus:outline-none focus:bg-white focus:border-crimson-700"
-                  />
-                </div>
-
-                <div>
-                  <label for="edit-var-category" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">
-                    Category
-                  </label>
-                  <select
-                    id="edit-var-category"
-                    class="w-full px-3.5 py-2.5 rounded-xl bg-parchment-50 border border-parchment-200 text-sm font-medium text-espresso-900 focus:outline-none focus:bg-white focus:border-crimson-700"
-                  >
-                    <option value="high-color">High Color (Mild)</option>
-                    <option value="high-pungency">High Pungency</option>
-                    <option value="processed">Processed / Stemless</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label for="edit-var-badge" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">
-                    Top Tag / Badge
-                  </label>
-                  <input
-                    type="text"
-                    id="edit-var-badge"
-                    placeholder="e.g., Original GI Flagship"
-                    class="w-full px-3.5 py-2.5 rounded-xl bg-parchment-50 border border-parchment-200 text-sm text-espresso-900 focus:outline-none focus:bg-white focus:border-crimson-700"
-                  />
-                </div>
-
-                <div>
-                  <label for="edit-var-origin" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">
-                    Origin / Growing Belt
-                  </label>
-                  <input
-                    type="text"
-                    id="edit-var-origin"
-                    placeholder="e.g., Byadagi, Karnataka"
-                    class="w-full px-3.5 py-2.5 rounded-xl bg-parchment-50 border border-parchment-200 text-sm text-espresso-900 focus:outline-none focus:bg-white focus:border-crimson-700"
-                  />
-                </div>
-
-                <div>
-                  <label for="edit-var-asta" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">
-                    ASTA Color Value
-                  </label>
-                  <input
-                    type="text"
-                    id="edit-var-asta"
-                    placeholder="e.g., 140 – 160+ ASTA"
-                    class="w-full px-3.5 py-2.5 rounded-xl bg-parchment-50 border border-parchment-200 text-sm text-espresso-900 focus:outline-none focus:bg-white focus:border-crimson-700"
-                  />
-                </div>
-
-                <div>
-                  <label for="edit-var-shu" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">
-                    Pungency (SHU)
-                  </label>
-                  <input
-                    type="text"
-                    id="edit-var-shu"
-                    placeholder="e.g., 15,000 – 25,000 SHU"
-                    class="w-full px-3.5 py-2.5 rounded-xl bg-parchment-50 border border-parchment-200 text-sm text-espresso-900 focus:outline-none focus:bg-white focus:border-crimson-700"
-                  />
-                </div>
-
-                <div>
-                  <label for="edit-var-heat" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">
-                    Heat Meter Level (<span id="edit-var-heat-label">25%</span>)
-                  </label>
-                  <input
-                    type="range"
-                    id="edit-var-heat"
-                    min="5"
-                    max="100"
-                    value="25"
-                    oninput="document.getElementById('edit-var-heat-label').textContent = this.value + '%'"
-                    class="w-full accent-crimson-800 mt-2"
-                  />
-                </div>
-
-                <div>
-                  <label for="edit-var-moisture" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">
-                    Moisture Level
-                  </label>
-                  <input
-                    type="text"
-                    id="edit-var-moisture"
-                    placeholder="e.g., < 10.0%"
-                    class="w-full px-3.5 py-2.5 rounded-xl bg-parchment-50 border border-parchment-200 text-sm text-espresso-900 focus:outline-none focus:bg-white focus:border-crimson-700"
-                  />
-                </div>
-
-                <div>
-                  <label for="edit-var-packaging" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">
-                    Export Packaging
-                  </label>
-                  <input
-                    type="text"
-                    id="edit-var-packaging"
-                    placeholder="e.g., 25kg / 50kg Jute or PP Bags"
-                    class="w-full px-3.5 py-2.5 rounded-xl bg-parchment-50 border border-parchment-200 text-sm text-espresso-900 focus:outline-none focus:bg-white focus:border-crimson-700"
-                  />
-                </div>
-
-                <div class="sm:col-span-2">
-                  <label for="edit-var-desc" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">
-                    Chilli Description &amp; Quality Notes
-                  </label>
-                  <textarea
-                    id="edit-var-desc"
-                    rows="2"
-                    placeholder="Describe pod appearance, natural wrinkling, oleoresin yield, and culinary/industrial applications..."
-                    class="w-full px-3.5 py-2.5 rounded-xl bg-parchment-50 border border-parchment-200 text-sm text-espresso-900 focus:outline-none focus:bg-white focus:border-crimson-700"
-                  ></textarea>
-                </div>
-              </div>
-            </div>
-
-            <!-- Form Footer Actions -->
-            <div class="pt-4 border-t border-parchment-200 flex flex-wrap items-center justify-between gap-3">
-              <button
-                type="button"
-                id="delete-variety-btn"
-                onclick="handleDeleteVarietyClick()"
-                class="hidden px-4 py-2.5 rounded-xl bg-crimson-50 hover:bg-crimson-100 text-crimson-800 border border-crimson-200 text-xs font-bold transition-colors"
-              >
-                Delete This Variety
-              </button>
-
-              <div class="flex items-center gap-3 ml-auto">
-                <button
-                  type="button"
-                  onclick="closeCatalogManager()"
-                  class="px-5 py-3 rounded-xl bg-parchment-100 hover:bg-parchment-200 text-espresso-900 text-sm font-semibold"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  class="px-6 py-3 rounded-xl bg-crimson-800 hover:bg-crimson-700 text-white text-sm font-bold shadow-md transition-colors"
-                >
-                  Save Chilli Photo &amp; Details
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-
-        <!-- TAB 2: HERO SHOWCASE PHOTO & DETAILS -->
-        <div id="manager-panel-hero" class="hidden p-6 sm:p-8 space-y-6 max-h-[78vh] overflow-y-auto">
-          <form onsubmit="saveHeroChanges(event)" class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-            <div class="lg:col-span-6 space-y-3">
-              <label class="block text-xs font-bold uppercase tracking-wider text-espresso-800">
-                Hero Showcase Photo Preview
-              </label>
-              <div class="relative aspect-[16/10] rounded-2xl overflow-hidden bg-parchment-100 border-2 border-dashed border-parchment-200 flex items-center justify-center">
-                <img
-                  id="edit-hero-img-preview"
-                  src=""
-                  alt="Hero showcase preview"
-                  class="hidden w-full h-full object-cover"
-                />
-                <div id="edit-hero-default-note" class="text-center p-6">
-                  <p class="font-serif text-base font-bold text-espresso-900">Default Byadagi Botanical Artwork Active</p>
-                  <p class="text-xs text-stone-500 mt-1">Upload a real photo of your chillies below to display it on the front hero card.</p>
-                </div>
-              </div>
-
-              <label class="cursor-pointer w-full py-3 px-4 rounded-xl bg-espresso-900 hover:bg-crimson-800 text-white text-xs font-bold text-center transition-colors flex items-center justify-center gap-2">
-                <svg class="w-4 h-4 text-terracotta-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                  <polyline points="17 8 12 3 7 8" />
-                  <line x1="12" y1="3" x2="12" y2="15" />
-                </svg>
-                <span>Upload Hero Chilli Photo from Device</span>
-                <input
-                  type="file"
-                  accept="image/*"
-                  onchange="handleHeroImageUpload(event)"
-                  class="hidden"
-                />
-              </label>
-
-              <div class="flex items-center gap-2">
-                <input
-                  type="url"
-                  id="edit-hero-url"
-                  placeholder="Or paste hero image URL (https://...)"
-                  oninput="handleHeroUrlInput(this.value)"
-                  class="flex-1 px-3 py-2 rounded-xl bg-parchment-50 border border-parchment-200 text-xs text-espresso-900 focus:outline-none focus:border-crimson-700"
-                />
-                <button
-                  type="button"
-                  onclick="clearHeroCustomImage()"
-                  class="px-3 py-2 rounded-xl bg-parchment-100 hover:bg-parchment-200 text-stone-700 text-xs font-semibold shrink-0"
-                >
-                  Use Default Art
-                </button>
-              </div>
-            </div>
-
-            <div class="lg:col-span-6 space-y-4">
-              <div>
-                <label for="edit-hero-title" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">
-                  Hero Card Chilli Title
-                </label>
-                <input
-                  type="text"
-                  id="edit-hero-title"
-                  required
-                  value="Byadagi Dabbi &amp; Kaddi"
-                  class="w-full px-3.5 py-2.5 rounded-xl bg-parchment-50 border border-parchment-200 text-sm font-semibold text-espresso-900 focus:outline-none focus:bg-white focus:border-crimson-700"
-                />
-              </div>
-
-              <div>
-                <label for="edit-hero-badge" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">
-                  Crop / Harvest Badge
-                </label>
-                <input
-                  type="text"
-                  id="edit-hero-badge"
-                  required
-                  value="Original Crop 2026"
-                  class="w-full px-3.5 py-2.5 rounded-xl bg-parchment-50 border border-parchment-200 text-sm text-espresso-900 focus:outline-none focus:bg-white focus:border-crimson-700"
-                />
-              </div>
-
-              <div>
-                <label for="edit-hero-asta" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">
-                  Hero ASTA Callout Value
-                </label>
-                <input
-                  type="text"
-                  id="edit-hero-asta"
-                  required
-                  value="ASTA 140–160+"
-                  class="w-full px-3.5 py-2.5 rounded-xl bg-parchment-50 border border-parchment-200 text-sm text-espresso-900 focus:outline-none focus:bg-white focus:border-crimson-700"
-                />
-              </div>
-
-              <div class="pt-4 flex justify-end gap-3">
-                <button
-                  type="button"
-                  onclick="closeCatalogManager()"
-                  class="px-5 py-3 rounded-xl bg-parchment-100 hover:bg-parchment-200 text-espresso-900 text-sm font-semibold"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  class="px-6 py-3 rounded-xl bg-crimson-800 hover:bg-crimson-700 text-white text-sm font-bold shadow-md transition-colors"
-                >
-                  Save Hero Showcase
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===================================================================== -->
-  <!-- GOOGLE SHEETS LIVE SYNC MODAL                                         -->
-  <!-- ===================================================================== -->
-  <div id="sheets-sync-modal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-modal="true" role="dialog" aria-labelledby="sheets-modal-title">
-    <!-- Backdrop -->
-    <div onclick="closeSheetsSyncModal()" class="fixed inset-0 bg-espresso-950/70 backdrop-blur-xs transition-opacity"></div>
-
-    <!-- Modal Dialog Box -->
-    <div class="relative min-h-screen flex items-center justify-center p-3 sm:p-6">
-      <div class="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-parchment-200 overflow-hidden my-8">
-        
-        <!-- Header -->
-        <div class="bg-gradient-to-r from-emerald-900 via-emerald-800 to-espresso-900 px-6 py-5 text-white flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/20">
-              <svg class="w-5 h-5 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                <polyline points="14 2 14 8 20 8" />
-                <line x1="16" y1="13" x2="8" y2="13" />
-                <line x1="16" y1="17" x2="8" y2="17" />
-                <polyline points="10 9 9 9 8 9" />
-              </svg>
-            </div>
-            <div>
-              <h3 id="sheets-modal-title" class="font-serif text-lg sm:text-xl font-bold">Google Sheets Live Sync</h3>
-              <p class="text-xs text-emerald-200 mt-0.5">Auto-update Mandi rates &amp; chilli photos every Mon &amp; Thu night</p>
-            </div>
-          </div>
-          <button
-            type="button"
-            onclick="closeSheetsSyncModal()"
-            class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
-          >
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-          </button>
-        </div>
-
-        <!-- Schedule Alert -->
-        <div class="bg-emerald-50 border-b border-emerald-100 px-6 py-3 flex items-center justify-between text-xs text-emerald-900">
-          <div class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
-            <span><strong>Weekly Schedule:</strong> Update your Google Sheet on <strong>Monday &amp; Thursday nights</strong> after Byadagi APMC auctions.</span>
-          </div>
-          <span class="hidden sm:inline font-bold text-emerald-800">Live Auto-Sync</span>
-        </div>
-
-        <!-- Modal Body Content -->
-        <div class="p-6 space-y-6">
-          
-          <!-- Step 1: Google Sheet URL Input -->
-          <div class="space-y-2">
-            <div class="flex items-center justify-between">
-              <label for="google-sheet-url-input" class="text-xs font-bold uppercase tracking-wider text-espresso-800">
-                1. Your Google Sheet Link or Sheet ID
-              </label>
-              <button
-                type="button"
-                onclick="loadDemoSheetConfig()"
-                class="text-xs font-semibold text-emerald-700 hover:text-emerald-900 underline cursor-pointer"
-              >
-                Use Built-in Template URL
-              </button>
-            </div>
-            <div class="relative">
-              <input
-                type="text"
-                id="google-sheet-url-input"
-                placeholder="Paste link: https://docs.google.com/spreadsheets/d/1BxiMVs.../edit"
-                class="w-full px-4 py-3 rounded-xl bg-parchment-50 border border-parchment-200 text-sm text-espresso-900 focus:outline-none focus:bg-white focus:border-emerald-600 transition-all font-mono"
-              />
-            </div>
-            <p class="text-[11px] text-stone-500">
-              💡 <strong>Important:</strong> In your Google Sheet, click <em>Share &rarr; Anyone with the link can view</em>.
-            </p>
-          </div>
-
-          <!-- Step 2: Tab Names Selection -->
-          <div class="bg-parchment-50 rounded-2xl p-4 border border-parchment-200 space-y-3">
-            <span class="text-xs font-bold uppercase tracking-wider text-espresso-800 block">
-              2. Google Sheet Tabs Configuration
-            </span>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-              <div>
-                <label class="block font-semibold text-stone-700 mb-1">Mandi Rates Tab Name:</label>
-                <input
-                  type="text"
-                  id="google-sheet-rates-tab"
-                  value="APMC_Mandi_Rates"
-                  class="w-full px-3 py-2 rounded-lg bg-white border border-parchment-200 text-xs font-mono text-espresso-900 focus:outline-none focus:border-emerald-600"
-                />
-              </div>
-              <div>
-                <label class="block font-semibold text-stone-700 mb-1">Chilli Images Tab Name:</label>
-                <input
-                  type="text"
-                  id="google-sheet-images-tab"
-                  value="Chilli_Images"
-                  class="w-full px-3 py-2 rounded-lg bg-white border border-parchment-200 text-xs font-mono text-espresso-900 focus:outline-none focus:border-emerald-600"
-                />
-              </div>
-            </div>
-          </div>
-
-          <!-- Step 3: Action Buttons & Live Sync -->
-          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-            <button
-              type="button"
-              id="btn-sync-sheets-now"
-              onclick="triggerGoogleSheetsSync(true)"
-              class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-sm shadow-md transition-all cursor-pointer"
-            >
-              <svg id="sync-spinner-icon" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="23 4 23 10 17 10" />
-                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
-              </svg>
-              <span id="sync-button-text">Sync Live Data from Sheet</span>
-            </button>
-            <button
-              type="button"
-              onclick="saveSheetConfigOnly()"
-              class="px-5 py-3.5 rounded-xl bg-white hover:bg-parchment-100 text-espresso-900 border border-parchment-200 font-semibold text-sm transition-all cursor-pointer"
-            >
-              Save Link
-            </button>
-          </div>
-
-          <!-- Sync Results / Status Log -->
-          <div id="sheets-sync-log-box" class="p-3.5 rounded-xl bg-parchment-100/60 border border-parchment-200 text-xs text-stone-700 space-y-1">
-            <div class="font-bold text-espresso-900 flex items-center gap-1.5">
-              <span id="sync-log-status-dot" class="w-2 h-2 rounded-full bg-emerald-500"></span>
-              <span id="sync-log-status-title">Sync Status: Ready</span>
-            </div>
-            <p id="sync-log-status-desc" class="text-stone-600">Click "Sync Live Data from Sheet" to pull latest auction rates and images.</p>
-          </div>
-
-          <!-- How to upload photos note -->
-          <div class="pt-3 border-t border-parchment-200 text-xs text-stone-600 space-y-1.5">
-            <p class="font-bold text-espresso-900">📸 How to put Chilli Photos in Google Sheets:</p>
-            <ol class="list-decimal list-inside space-y-1 text-[11px] text-stone-600">
-              <li>Upload your photos to Google Drive.</li>
-              <li>Right-click the photo &rarr; <strong>Share &rarr; Anyone with the link can view</strong>.</li>
-              <li>Copy the link and paste it into the <code>IMAGE_URL</code> column for that variety.</li>
-              <li>The website automatically optimizes and displays the photo!</li>
-            </ol>
-          </div>
-
-        </div>
-
-        <!-- Footer -->
-        <div class="bg-parchment-50 px-6 py-4 border-t border-parchment-200 flex items-center justify-between">
-          <button
-            type="button"
-            onclick="downloadTemplateCsv()"
-            class="text-xs font-bold text-emerald-800 hover:text-emerald-950 inline-flex items-center gap-1.5 cursor-pointer"
-          >
-            <svg class="w-4 h-4 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span>Download Ready CSV Template</span>
-          </button>
-          <button
-            type="button"
-            onclick="closeSheetsSyncModal()"
-            class="px-4 py-2 rounded-lg bg-parchment-200 hover:bg-parchment-300 text-espresso-900 text-xs font-semibold cursor-pointer"
-          >
-            Close
-          </button>
-        </div>
-
       </div>
     </div>
   </div>
@@ -2124,94 +1457,7 @@
       }
     ];
 
-    const DEFAULT_HERO_DATA = {
-      title: 'Byadagi Dabbi & Kaddi',
-      badge: 'Original Crop 2026',
-      asta: 'ASTA 140–160+',
-      customImage: ''
-    };
-
-    const STORAGE_KEY_PRODUCTS = 'skep_custom_products_v1';
-    const STORAGE_KEY_HERO = 'skep_custom_hero_v1';
-
-    let PRODUCTS = [];
-    let HERO_DATA = { ...DEFAULT_HERO_DATA };
-    let pendingVarietyImage = '';
-    let pendingHeroImage = '';
-    let confirmResetArmed = false;
-    let confirmDeleteArmed = false;
-
-    /**
-     * Load Saved Catalog & Hero Data from Browser LocalStorage
-     */
-    function loadCatalogFromStorage() {
-      try {
-        const savedProducts = localStorage.getItem(STORAGE_KEY_PRODUCTS);
-        if (savedProducts) {
-          const parsed = JSON.parse(savedProducts);
-          if (Array.isArray(parsed) && parsed.length > 0) {
-            PRODUCTS = parsed;
-          } else {
-            PRODUCTS = JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
-          }
-        } else {
-          PRODUCTS = JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
-        }
-
-        const savedHero = localStorage.getItem(STORAGE_KEY_HERO);
-        if (savedHero) {
-          HERO_DATA = { ...DEFAULT_HERO_DATA, ...JSON.parse(savedHero) };
-        } else {
-          HERO_DATA = { ...DEFAULT_HERO_DATA };
-        }
-      } catch (e) {
-        PRODUCTS = JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
-        HERO_DATA = { ...DEFAULT_HERO_DATA };
-      }
-    }
-
-    /**
-     * Persist Catalog & Hero Data to Browser LocalStorage
-     */
-    function saveCatalogToStorage() {
-      try {
-        localStorage.setItem(STORAGE_KEY_PRODUCTS, JSON.stringify(PRODUCTS));
-        localStorage.setItem(STORAGE_KEY_HERO, JSON.stringify(HERO_DATA));
-        return true;
-      } catch (e) {
-        showToast('Storage quota reached. Try uploading slightly smaller photo files.');
-        return false;
-      }
-    }
-
-    /**
-     * Compress Uploaded Image File via Canvas so High-Res Phone Photos Save Smoothly
-     */
-    function compressUploadedImage(file, maxWidth = 820, quality = 0.82) {
-      return new Promise((resolve, reject) => {
-        if (!file || !file.type.startsWith('image/')) {
-          reject(new Error('Invalid image file'));
-          return;
-        }
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          const img = new Image();
-          img.onload = () => {
-            const scale = Math.min(1, maxWidth / img.width);
-            const canvas = document.createElement('canvas');
-            canvas.width = Math.round(img.width * scale);
-            canvas.height = Math.round(img.height * scale);
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-            resolve(canvas.toDataURL('image/jpeg', quality));
-          };
-          img.onerror = reject;
-          img.src = event.target.result;
-        };
-        reader.onerror = reject;
-        reader.readAsDataURL(file);
-      });
-    }
+    let PRODUCTS = JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
 
     /**
      * Farm-to-Port Interactive Stage Details
@@ -2289,10 +1535,8 @@
 
     function initApmcBulletin() {
       const dateEl = document.getElementById('apmc-bulletin-date');
-      if (dateEl) {
-        const today = new Date();
-        const options = { day: 'numeric', month: 'short', year: 'numeric' };
-        dateEl.textContent = today.toLocaleDateString('en-IN', options);
+      if (dateEl && APMC_MARKET_DATA.date) {
+        dateEl.textContent = APMC_MARKET_DATA.date;
       }
       renderApmcTable();
     }
@@ -2352,60 +1596,18 @@
 
     /**
      * =====================================================================
-     * GOOGLE SHEETS LIVE SYNC ENGINE (Every Mon & Thu Night Updates)
+     * GOOGLE SHEETS LIVE SYNC ENGINE (Read-Only for Visitors)
+     * Configure your shared Google Sheet URL/ID below (Anyone with link: Viewer).
      * =====================================================================
      */
-    const SHEETS_CONFIG_STORAGE_KEY = 'skep_google_sheets_config';
-
-    let sheetsConfig = {
-      sheetIdOrUrl: '',
+    const GOOGLE_SHEETS_CONFIG = {
+      sheetIdOrUrl: 'https://docs.google.com/spreadsheets/d/12Qd3O1I-KEJ12dkdg1pt9fuUIUdA28OkJoUOaOd_PyI/edit',
       ratesTab: 'APMC_Mandi_Rates',
+      ratesGid: '0',
       imagesTab: 'Chilli_Images',
-      autoSync: true,
-      lastSyncTime: null
+      imagesGid: '1822063633',
+      inquiryWebhookUrl: 'https://script.google.com/macros/s/AKfycbzSpYtokpa4rxvB7wKR7vcB-nvSWgTvTPvg7DGvzlu5mXebBQshei4uye0OXpa_RZGq/exec'
     };
-
-    function loadSheetsConfig() {
-      try {
-        const saved = localStorage.getItem(SHEETS_CONFIG_STORAGE_KEY);
-        if (saved) {
-          sheetsConfig = Object.assign({}, sheetsConfig, JSON.parse(saved));
-        }
-      } catch (e) {
-        console.warn('Unable to load sheets config from localStorage:', e);
-      }
-    }
-
-    function saveSheetsConfig() {
-      try {
-        localStorage.setItem(SHEETS_CONFIG_STORAGE_KEY, JSON.stringify(sheetsConfig));
-      } catch (e) {
-        console.warn('Unable to save sheets config:', e);
-      }
-    }
-
-    function openSheetsSyncModal() {
-      const modal = document.getElementById('sheets-sync-modal');
-      if (!modal) return;
-      modal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-
-      const urlInput = document.getElementById('google-sheet-url-input');
-      const ratesTabInput = document.getElementById('google-sheet-rates-tab');
-      const imagesTabInput = document.getElementById('google-sheet-images-tab');
-
-      if (urlInput) urlInput.value = sheetsConfig.sheetIdOrUrl || '';
-      if (ratesTabInput) ratesTabInput.value = sheetsConfig.ratesTab || 'APMC_Mandi_Rates';
-      if (imagesTabInput) imagesTabInput.value = sheetsConfig.imagesTab || 'Chilli_Images';
-
-      updateSyncLogBox(sheetsConfig.lastSyncTime ? `Last synced: ${new Date(sheetsConfig.lastSyncTime).toLocaleString()}` : 'Ready to sync from Google Sheets.');
-    }
-
-    function closeSheetsSyncModal() {
-      const modal = document.getElementById('sheets-sync-modal');
-      if (modal) modal.classList.add('hidden');
-      document.body.style.overflow = '';
-    }
 
     function extractGoogleSheetId(input) {
       if (!input) return '';
@@ -2421,7 +1623,6 @@
       if (!url) return '';
       const str = String(url).trim();
       if (!str) return '';
-      // Convert Google Drive view or sharing links to high-res thumbnail direct images
       const driveMatch = str.match(/(?:file\/d\/|id=)([-_\w]{25,})/);
       if (driveMatch) {
         return `https://drive.google.com/thumbnail?id=${driveMatch[1]}&sz=w1200`;
@@ -2457,105 +1658,87 @@
       });
     }
 
-    function triggerGoogleSheetsSync(isManual) {
-      if (typeof isManual === 'undefined') isManual = false;
-      const urlInput = document.getElementById('google-sheet-url-input');
-      const ratesTabInput = document.getElementById('google-sheet-rates-tab');
-      const imagesTabInput = document.getElementById('google-sheet-images-tab');
-
-      if (urlInput) sheetsConfig.sheetIdOrUrl = urlInput.value.trim();
-      if (ratesTabInput) sheetsConfig.ratesTab = ratesTabInput.value.trim() || 'APMC_Mandi_Rates';
-      if (imagesTabInput) sheetsConfig.imagesTab = imagesTabInput.value.trim() || 'Chilli_Images';
-
-      const sheetId = extractGoogleSheetId(sheetsConfig.sheetIdOrUrl);
-      if (!sheetId) {
-        if (isManual) {
-          showToast('Please enter your Google Sheet Link or Sheet ID first.');
-          if (urlInput) urlInput.focus();
+    function unwrapGoogleRedirectUrl(rawHref) {
+      if (!rawHref) return '';
+      try {
+        const parsed = new URL(rawHref);
+        if (parsed.hostname === 'www.google.com' && parsed.pathname === '/url') {
+          const target = parsed.searchParams.get('q');
+          if (target) return target;
         }
-        return;
-      }
+      } catch (e) {}
+      return rawHref;
+    }
 
-      saveSheetsConfig();
+    function parseHtmlSheetRows(htmlText) {
+      if (!htmlText) return [];
+      const doc = new DOMParser().parseFromString(htmlText, 'text/html');
+      const trs = doc.querySelectorAll('table.waffle tbody tr');
+      const rows = [];
+      trs.forEach(function (tr) {
+        const tds = tr.querySelectorAll('td');
+        if (!tds || tds.length === 0) return;
+        const row = [];
+        tds.forEach(function (td) {
+          const link = td.querySelector('a[href]');
+          if (link) {
+            const href = unwrapGoogleRedirectUrl(link.getAttribute('href') || '');
+            row.push(href || td.textContent.trim());
+          } else {
+            row.push(td.textContent.trim());
+          }
+        });
+        if (row.some(function (cell) { return cell.length > 0; })) {
+          rows.push(row);
+        }
+      });
+      return rows;
+    }
 
-      const btn = document.getElementById('btn-sync-sheets-now');
-      const btnText = document.getElementById('sync-button-text');
-      const spinner = document.getElementById('sync-spinner-icon');
+    function fetchLiveGoogleSheetData() {
+      const sheetId = extractGoogleSheetId(GOOGLE_SHEETS_CONFIG.sheetIdOrUrl);
+      if (!sheetId) return;
 
-      if (btn && btnText) {
-        btnText.textContent = 'Fetching from Google Sheets...';
-        btn.classList.add('opacity-75', 'pointer-events-none');
-        if (spinner) spinner.classList.add('animate-spin');
-      }
-
-      let updatedRatesCount = 0;
-      let updatedImagesCount = 0;
-      const syncErrors = [];
-
-      const ratesUrl = 'https://docs.google.com/spreadsheets/d/' + sheetId + '/gviz/tq?tqx=out:csv&sheet=' + encodeURIComponent(sheetsConfig.ratesTab);
-      const imagesUrl = 'https://docs.google.com/spreadsheets/d/' + sheetId + '/gviz/tq?tqx=out:csv&sheet=' + encodeURIComponent(sheetsConfig.imagesTab);
+      const ratesUrl = GOOGLE_SHEETS_CONFIG.ratesGid !== undefined && GOOGLE_SHEETS_CONFIG.ratesGid !== ''
+        ? 'https://docs.google.com/spreadsheets/d/' + sheetId + '/export?format=csv&gid=' + encodeURIComponent(GOOGLE_SHEETS_CONFIG.ratesGid)
+        : 'https://docs.google.com/spreadsheets/d/' + sheetId + '/gviz/tq?tqx=out:csv&sheet=' + encodeURIComponent(GOOGLE_SHEETS_CONFIG.ratesTab);
+      const useHtmlForImages = GOOGLE_SHEETS_CONFIG.imagesGid !== undefined && GOOGLE_SHEETS_CONFIG.imagesGid !== '';
+      const imagesUrl = useHtmlForImages
+        ? 'https://docs.google.com/spreadsheets/d/' + sheetId + '/htmlview/sheet?headers=true&gid=' + encodeURIComponent(GOOGLE_SHEETS_CONFIG.imagesGid)
+        : 'https://docs.google.com/spreadsheets/d/' + sheetId + '/gviz/tq?tqx=out:csv&sheet=' + encodeURIComponent(GOOGLE_SHEETS_CONFIG.imagesTab);
 
       function fetchTab(tabUrl) {
-        return fetch(tabUrl).then(function (res) {
+        return fetch(tabUrl, { cache: 'no-store' }).then(function (res) {
           if (!res.ok) throw new Error('HTTP ' + res.status);
           return res.text();
         });
       }
 
       Promise.all([
-        fetchTab(ratesUrl).catch(function (err) {
-          syncErrors.push('Rates tab (' + sheetsConfig.ratesTab + '): ' + err.message);
-          return null;
-        }),
-        fetchTab(imagesUrl).catch(function (err) {
-          syncErrors.push('Images tab (' + sheetsConfig.imagesTab + '): ' + err.message);
-          return null;
-        })
+        fetchTab(ratesUrl).catch(function () { return null; }),
+        fetchTab(imagesUrl).catch(function () { return null; })
       ]).then(function (results) {
         const ratesCsv = results[0];
-        const imagesCsv = results[1];
+        const imagesPayload = results[1];
+        let ratesUpdated = 0;
 
         if (ratesCsv) {
           const rows = parseCsvRows(ratesCsv);
           const res = applyRatesFromRows(rows);
-          updatedRatesCount = res.ratesCount;
+          ratesUpdated = res.ratesCount;
         }
 
-        if (imagesCsv) {
-          const rows = parseCsvRows(imagesCsv);
-          updatedImagesCount = applyImagesFromRows(rows);
+        if (imagesPayload) {
+          const rows = useHtmlForImages ? parseHtmlSheetRows(imagesPayload) : parseCsvRows(imagesPayload);
+          applyImagesFromRows(rows);
         }
-
-        if (btn && btnText) {
-          btnText.textContent = 'Sync Live Data from Sheet';
-          btn.classList.remove('opacity-75', 'pointer-events-none');
-          if (spinner) spinner.classList.remove('animate-spin');
-        }
-
-        sheetsConfig.lastSyncTime = new Date().toISOString();
-        saveSheetsConfig();
 
         const badge = document.getElementById('apmc-sync-status-badge');
-        if (badge) {
-          badge.textContent = 'Synced: ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        }
-
-        const successMsg = '✅ Successfully synced! Updated ' + updatedRatesCount + ' Mandi rates & ' + updatedImagesCount + ' chilli photos.';
-        updateSyncLogBox(successMsg + (syncErrors.length ? '<br><span class="text-amber-700">Notice: ' + syncErrors.join(' | ') + '</span>' : ''));
-
-        if (isManual) {
-          showToast('Google Sheets Sync Complete! (' + updatedRatesCount + ' rates, ' + updatedImagesCount + ' images)');
+        if (badge && ratesUpdated > 0) {
+          badge.textContent = 'Live • Google Sheets';
         }
       }).catch(function (err) {
-        if (btn && btnText) {
-          btnText.textContent = 'Sync Live Data from Sheet';
-          btn.classList.remove('opacity-75', 'pointer-events-none');
-          if (spinner) spinner.classList.remove('animate-spin');
-        }
-        updateSyncLogBox('<span class="text-crimson-700">Sync Error: ' + err.message + '</span>');
-        if (isManual) {
-          showToast('Sync failed: ' + err.message);
-        }
+        console.warn('Unable to sync live Google Sheet:', err);
       });
     }
 
@@ -2565,7 +1748,6 @@
         if (!row || row.length === 0) return;
         const lineStr = row.join(' ').toLowerCase();
 
-        // Check for DATE
         if (lineStr.includes('date')) {
           for (let i = 0; i < row.length; i++) {
             if (row[i].toLowerCase() === 'date' && row[i + 1]) {
@@ -2579,22 +1761,22 @@
           }
         }
 
-        // Check for TOTAL_BAGS
         if (lineStr.includes('total_bags') || lineStr.includes('total bags') || lineStr.includes('bags arrived')) {
           for (let i = 0; i < row.length; i++) {
             const cell = row[i].toLowerCase();
             if ((cell === 'total_bags' || cell === 'total bags' || cell === 'bags') && row[i + 1]) {
-              const bagsVal = row[i + 1].trim();
-              if (bagsVal) {
+              const rawBags = row[i + 1].trim();
+              if (rawBags) {
+                const numericBags = parseInt(rawBags.replace(/[^\d]/g, ''), 10);
+                const formattedBags = !isNaN(numericBags) && numericBags > 0 ? numericBags.toLocaleString('en-IN') : rawBags;
                 const countEl = document.getElementById('apmc-total-bags-count');
-                if (countEl) countEl.textContent = bagsVal;
-                APMC_MARKET_DATA.totalBags = bagsVal;
+                if (countEl) countEl.textContent = formattedBags;
+                APMC_MARKET_DATA.totalBags = formattedBags;
               }
             }
           }
         }
 
-        // Check for Rate Varieties: DABBI, KDL / KADDI, GUNTUR, 2043, 5531
         APMC_MARKET_DATA.rates.forEach(rateItem => {
           const targetName = rateItem.name.toUpperCase();
           const matchCellIdx = row.findIndex(c => {
@@ -2606,7 +1788,6 @@
           });
 
           if (matchCellIdx > -1) {
-            // Numbers can follow in subsequent cells: Low, Med, High, Avg
             const nums = row.slice(matchCellIdx + 1)
               .map(v => parseInt(v.replace(/[^\d]/g, ''), 10))
               .filter(n => !isNaN(n) && n > 0);
@@ -2626,191 +1807,93 @@
       return { ratesCount };
     }
 
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function formatVarietyPrice(raw) {
+      if (!raw) return '';
+      const trimmed = String(raw).trim();
+      if (!trimmed || /^paste\s+google/i.test(trimmed)) return '';
+      // If pure number (optional commas / decimals), format as Indian per-kg currency
+      if (/^[\d,]+(?:\.\d+)?$/.test(trimmed)) {
+        const num = parseFloat(trimmed.replace(/,/g, ''));
+        if (!isNaN(num) && num > 0) {
+          return '₹' + num.toLocaleString('en-IN') + ' / kg';
+        }
+      }
+      return trimmed;
+    }
+
     function applyImagesFromRows(rows) {
-      let imageCount = 0;
+      let updatedCount = 0;
+      let priceColIdx = 4; // Default Column E (PRICE)
+
+      const headerRow = rows.find(r => r && r.some(c => /^(product_id|chilli_name|price)$/i.test(String(c).trim())));
+      if (headerRow) {
+        const detectedPriceIdx = headerRow.findIndex(c => /^(price|rate|selling_price)$/i.test(String(c).trim()));
+        if (detectedPriceIdx > -1) {
+          priceColIdx = detectedPriceIdx;
+        }
+      }
+
       rows.forEach(row => {
         if (!row || row.length < 2) return;
-        const col0 = row[0].toLowerCase().trim();
+        const col0 = row[0] ? row[0].toLowerCase().trim() : '';
         const col1 = row[1] ? row[1].toLowerCase().trim() : '';
+        if (col0 === 'product_id') return;
 
-        // Find matching product in PRODUCTS array
         const product = PRODUCTS.find(p => {
-          return p.id.toLowerCase() === col0 ||
-                 p.name.toLowerCase().includes(col0) ||
-                 (col1 && p.name.toLowerCase().includes(col1));
+          const id = p.id.toLowerCase();
+          const name = p.name.toLowerCase();
+          return (col0 && (id === col0 || name.includes(col0))) ||
+                 (col1 && (id === col1 || name.includes(col1)));
         });
 
         if (product) {
-          // Find any URL cell in the row
           const urlCell = row.find(c => c && (c.includes('http') || c.includes('drive.google.com')));
           if (urlCell) {
             const formatted = formatDriveImageUrl(urlCell);
             if (formatted && formatted !== product.customImage) {
               product.customImage = formatted;
-              imageCount++;
+              updatedCount++;
+            }
+          }
+
+          if (priceColIdx > -1 && row.length > priceColIdx) {
+            const formattedPrice = formatVarietyPrice(row[priceColIdx]);
+            if (formattedPrice !== (product.price || '')) {
+              product.price = formattedPrice;
+              updatedCount++;
             }
           }
         }
       });
 
-      if (imageCount > 0) {
-        saveCatalogToStorage();
+      if (updatedCount > 0) {
         renderProducts();
+        updateEstimator();
       }
-      return imageCount;
-    }
-
-    function updateSyncLogBox(htmlContent) {
-      const descEl = document.getElementById('sync-log-status-desc');
-      if (descEl) descEl.innerHTML = htmlContent;
-    }
-
-    function saveSheetConfigOnly() {
-      const urlInput = document.getElementById('google-sheet-url-input');
-      const ratesTabInput = document.getElementById('google-sheet-rates-tab');
-      const imagesTabInput = document.getElementById('google-sheet-images-tab');
-
-      if (urlInput) sheetsConfig.sheetIdOrUrl = urlInput.value.trim();
-      if (ratesTabInput) sheetsConfig.ratesTab = ratesTabInput.value.trim() || 'APMC_Mandi_Rates';
-      if (imagesTabInput) sheetsConfig.imagesTab = imagesTabInput.value.trim() || 'Chilli_Images';
-
-      saveSheetsConfig();
-      showToast('Google Sheet configuration saved!');
-    }
-
-    function loadDemoSheetConfig() {
-      const urlInput = document.getElementById('google-sheet-url-input');
-      if (urlInput) {
-        urlInput.value = 'https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit';
-      }
-      showToast('Loaded sample sheet configuration.');
-    }
-
-    function downloadTemplateCsv() {
-      const csvContent = "SECTION,KEY_OR_VARIETY,LOW,MEDIUM,HIGH,AVERAGE\nMETA,DATE,24 Nov 2026,,,\nMETA,TOTAL_BAGS,\"1,42,850\",,,\nRATES,DABBI,32000,48000,64000,49500\nRATES,KDL / KADDI,26500,38000,47500,39000\nRATES,GUNTUR,16000,21000,25500,21800\nRATES,2043,28000,42000,53000,43500\nRATES,5531,22500,34000,42000,35000\n";
-      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'APMC_Mandi_Rates_Template.csv';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      showToast('Downloaded APMC_Mandi_Rates_Template.csv');
+      return updatedCount;
     }
 
     /**
      * Initialize Page on DOM Ready
      */
     document.addEventListener('DOMContentLoaded', () => {
-      loadCatalogFromStorage();
-      loadSheetsConfig();
       initApmcBulletin();
-      renderHeroShowcase();
       renderProducts();
       syncEstimatorDropdown();
       updateEstimator();
       selectProcessStep(0);
       syncQuoteUI();
-      if (sheetsConfig.sheetIdOrUrl && sheetsConfig.autoSync) {
-        triggerGoogleSheetsSync(false);
-      }
+      fetchLiveGoogleSheetData();
     });
-
-    /**
-     * Render Hero Showcase Card (Custom Uploaded Photo or Default Botanical Art)
-     */
-    function renderHeroShowcase() {
-      const titleEl = document.getElementById('hero-lot-title');
-      const badgeEl = document.getElementById('hero-lot-badge');
-      const astaEl = document.getElementById('hero-asta-callout');
-      const container = document.getElementById('hero-visual-container');
-
-      if (titleEl) titleEl.textContent = HERO_DATA.title;
-      if (badgeEl) badgeEl.textContent = HERO_DATA.badge;
-      if (astaEl) astaEl.textContent = HERO_DATA.asta;
-
-      if (!container) return;
-
-      if (HERO_DATA.customImage) {
-        container.innerHTML = `
-          <img
-            src="${HERO_DATA.customImage}"
-            alt="${HERO_DATA.title}"
-            onerror="HERO_DATA.customImage=''; renderHeroShowcase();"
-            class="w-full h-[265px] object-cover"
-          />
-        `;
-      } else {
-        container.innerHTML = `
-          <div class="p-3 w-full">
-            <svg class="w-full h-auto" viewBox="0 0 420 265" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Realistic illustration of 100% original sun-dried Byadagi Dabbi and Kaddi red chillies">
-              <defs>
-                <radialGradient id="heroWarmSun" cx="50%" cy="45%" r="52%">
-                  <stop offset="0%" stop-color="#FDE68A" stop-opacity="0.7" />
-                  <stop offset="65%" stop-color="#FDBA74" stop-opacity="0.18" />
-                  <stop offset="100%" stop-color="#FAF8F5" stop-opacity="0" />
-                </radialGradient>
-                <linearGradient id="dabbiMainGrad" x1="75" y1="68" x2="215" y2="218" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#DC2626" />
-                  <stop offset="42%" stop-color="#991B1B" />
-                  <stop offset="82%" stop-color="#7F1D1D" />
-                  <stop offset="100%" stop-color="#450A0A" />
-                </linearGradient>
-                <linearGradient id="dabbiFrontGrad" x1="120" y1="88" x2="265" y2="225" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#EF4444" />
-                  <stop offset="45%" stop-color="#B91C1C" />
-                  <stop offset="85%" stop-color="#7F1D1D" />
-                  <stop offset="100%" stop-color="#450A0A" />
-                </linearGradient>
-                <linearGradient id="kaddiSlenderGrad" x1="210" y1="44" x2="355" y2="215" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#DC2626" />
-                  <stop offset="52%" stop-color="#991B1B" />
-                  <stop offset="100%" stop-color="#450A0A" />
-                </linearGradient>
-                <linearGradient id="naturalStemGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#65A30D" />
-                  <stop offset="60%" stop-color="#4D7C0F" />
-                  <stop offset="100%" stop-color="#365314" />
-                </linearGradient>
-              </defs>
-              <circle cx="210" cy="132" r="120" fill="url(#heroWarmSun)" />
-              <circle cx="210" cy="132" r="102" stroke="#D97706" stroke-width="1" stroke-dasharray="3 4" opacity="0.45" />
-              <ellipse cx="208" cy="238" rx="142" ry="12" fill="#1C1917" opacity="0.11" />
-              <g>
-                <path d="M312 52C323 36 340 31 351 36C344 41 334 47 325 60L312 52Z" fill="url(#naturalStemGrad)" />
-                <path d="M303 61C308 53 318 51 326 57C328 63 323 69 316 70C310 68 305 65 303 61Z" fill="#4D7C0F" />
-                <path d="M305 60C318 66 324 85 316 116C308 147 289 182 260 207C245 219 231 225 224 222C221 220 225 213 234 205C256 184 276 153 287 120C296 93 297 71 305 60Z" fill="url(#kaddiSlenderGrad)" />
-                <path d="M307 75C312 92 308 119 296 146" stroke="#FCA5A5" stroke-width="1.6" stroke-linecap="round" opacity="0.4" />
-                <path d="M294 96C302 100 309 100 315 97M286 121C295 125 303 125 310 122M275 147C284 151 292 151 298 148M261 172C269 176 277 176 283 173" stroke="#450A0A" stroke-width="1.4" stroke-linecap="round" opacity="0.7" />
-              </g>
-              <g>
-                <path d="M118 62C105 46 88 43 77 49C86 53 96 59 105 71L118 62Z" fill="url(#naturalStemGrad)" />
-                <path d="M103 71C109 63 120 62 128 69C129 76 123 82 115 83C109 80 104 76 103 71Z" fill="#4D7C0F" />
-                <path d="M104 71C91 83 88 112 99 144C110 176 135 207 167 222C177 227 185 225 184 219C182 212 172 203 162 191C143 169 131 138 128 106C126 88 125 75 117 69C112 66 107 68 104 71Z" fill="url(#dabbiMainGrad)" />
-                <path d="M95 102C105 107 116 106 125 101M97 128C109 134 121 133 130 127M106 154C118 160 130 159 139 153M121 179C132 184 143 183 151 177" stroke="#450A0A" stroke-width="1.8" stroke-linecap="round" opacity="0.75" />
-                <path d="M103 92C101 115 107 142 120 167" stroke="#FCA5A5" stroke-width="1.8" stroke-linecap="round" opacity="0.35" />
-              </g>
-              <g>
-                <path d="M214 48C223 28 242 21 256 26C247 32 237 40 229 56L214 48Z" fill="url(#naturalStemGrad)" />
-                <path d="M201 58C207 48 221 46 232 54C235 62 228 70 218 72C210 69 203 64 201 58Z" fill="#4D7C0F" />
-                <path d="M204 63L198 73L209 68L216 76L222 68L232 71L228 61" fill="#365314" />
-                <path d="M202 59C182 72 172 106 176 143C180 180 198 213 227 229C236 234 244 231 241 224C237 215 227 204 219 189C205 162 203 128 212 96C217 78 225 65 221 57C217 51 208 55 202 59Z" fill="url(#dabbiFrontGrad)" />
-                <path d="M193 80C186 108 187 144 198 176" stroke="#FECACA" stroke-width="2.2" stroke-linecap="round" opacity="0.45" />
-                <path d="M178 96C190 103 203 102 213 96M176 122C189 130 202 129 211 122M178 149C191 157 203 156 212 149M185 176C197 183 208 182 216 176M198 201C208 207 218 206 225 201" stroke="#450A0A" stroke-width="2" stroke-linecap="round" opacity="0.78" />
-              </g>
-              <g>
-                <ellipse cx="148" cy="229" rx="4.5" ry="3.2" transform="rotate(-18 148 229)" fill="#FBBF24" stroke="#B45309" stroke-width="0.8" />
-                <ellipse cx="163" cy="235" rx="4.2" ry="3" transform="rotate(14 163 235)" fill="#F59E0B" stroke="#B45309" stroke-width="0.8" />
-                <ellipse cx="264" cy="231" rx="4.5" ry="3.2" transform="rotate(22 264 231)" fill="#FBBF24" stroke="#B45309" stroke-width="0.8" />
-                <ellipse cx="281" cy="225" rx="4" ry="2.8" transform="rotate(-12 281 225)" fill="#F59E0B" stroke="#B45309" stroke-width="0.8" />
-              </g>
-            </svg>
-          </div>
-        `;
-      }
-    }
 
     /**
      * Keep Bulk Estimator Dropdown Synced with Added/Edited Varieties
@@ -3011,19 +2094,6 @@
                 </span>
               </div>
 
-              <!-- Quick Edit / Upload Photo Pill -->
-              <button
-                type="button"
-                onclick="openCatalogManager('edit', '${product.id}')"
-                title="Edit photo or specifications for ${product.name}"
-                class="absolute bottom-3 right-3 px-2.5 py-1.5 rounded-lg bg-white/95 hover:bg-white text-espresso-900 border border-parchment-200 shadow-sm text-[11px] font-bold flex items-center gap-1.5 transition-all"
-              >
-                <svg class="w-3.5 h-3.5 text-crimson-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-                  <circle cx="12" cy="13" r="4" />
-                </svg>
-                <span>Edit / Photo</span>
-              </button>
             </div>
 
             <!-- Card Body -->
@@ -3050,6 +2120,14 @@
                     style="width: ${product.heatPercent}%"
                   ></div>
                 </div>
+              </div>
+
+              <!-- Price Cell (Synced from Google Sheets) -->
+              <div class="mt-3 p-3.5 rounded-2xl bg-crimson-50/70 border border-crimson-200/80 flex items-center justify-between gap-3">
+                <span class="text-xs font-bold uppercase tracking-wider text-espresso-800">Price</span>
+                <span class="font-serif text-lg font-extrabold text-crimson-800">
+                  ${product.price ? escapeHtml(product.price) : '<span class="text-sm font-sans font-bold text-stone-600">On Request</span>'}
+                </span>
               </div>
 
               <!-- Technical Specs -->
@@ -3244,6 +2322,8 @@
       const astaValEl = document.getElementById('est-asta-val');
       const moistureValEl = document.getElementById('est-moisture-val');
       const purityValEl = document.getElementById('est-purity-val');
+      const priceValEl = document.getElementById('est-price-val');
+      const priceSubEl = document.getElementById('est-price-sub');
 
       if (summaryTitle) summaryTitle.textContent = product.name;
       if (summaryBadge) summaryBadge.textContent = `${quantityKg.toLocaleString()} kg Total`;
@@ -3255,6 +2335,33 @@
       if (astaValEl) astaValEl.textContent = product.asta;
       if (moistureValEl) moistureValEl.textContent = grade.includes('Grade A') ? '≤ 10.0% (Export Grade A)' : '≤ 11.0% (Standard Grade B)';
       if (purityValEl) purityValEl.textContent = grade.includes('Grade A') ? '99.5% Optical Sortex Cleaned' : '98.5% Machine Cleaned';
+
+      if (priceValEl && priceSubEl) {
+        const rawPrice = (product.price || '').trim();
+        if (!rawPrice) {
+          priceValEl.textContent = 'On Request';
+          priceSubEl.textContent = 'Submit quote for live lot pricing';
+        } else {
+          const isRange = /[-–—]/.test(rawPrice);
+          const numMatch = !isRange && rawPrice.match(/[\d,]+(?:\.\d+)?/);
+          const parsedNum = numMatch ? parseFloat(numMatch[0].replace(/,/g, '')) : NaN;
+          let perKg = NaN;
+          if (!isNaN(parsedNum) && parsedNum > 0) {
+            if (/qtl|quintal/i.test(rawPrice)) {
+              perKg = parsedNum / 100;
+            } else {
+              perKg = parsedNum;
+            }
+          }
+          if (!isNaN(perKg) && perKg > 0) {
+            priceValEl.textContent = '₹' + Math.round(perKg * quantityKg).toLocaleString('en-IN');
+            priceSubEl.textContent = `${rawPrice} × ${quantityKg.toLocaleString('en-IN')} kg`;
+          } else {
+            priceValEl.textContent = rawPrice;
+            priceSubEl.textContent = 'Indicative unit rate';
+          }
+        }
+      }
     }
 
     /**
@@ -3553,10 +2660,49 @@
       `;
     }
 
+    function sanitizeSheetCell(val) {
+      const str = val == null ? '' : String(val);
+      return /^[=+\-@]/.test(str) ? "'" + str : str;
+    }
+
+    /**
+     * Save Quotation Request to Google Sheets via Deployed Apps Script Web App
+     */
+    async function submitInquiryToGoogleSheet(payload) {
+      const webhookUrl = (GOOGLE_SHEETS_CONFIG.inquiryWebhookUrl || '').trim();
+      if (!webhookUrl) return { saved: false, reason: 'not_configured' };
+
+      const safePayload = {
+        refId: sanitizeSheetCell(payload.refId),
+        timestamp: sanitizeSheetCell(payload.timestamp),
+        name: sanitizeSheetCell(payload.name),
+        company: sanitizeSheetCell(payload.company),
+        email: sanitizeSheetCell(payload.email),
+        phone: sanitizeSheetCell(payload.phone),
+        port: sanitizeSheetCell(payload.port),
+        requestType: sanitizeSheetCell(payload.requestType),
+        totalKg: payload.totalKg,
+        items: sanitizeSheetCell(payload.items),
+        notes: sanitizeSheetCell(payload.notes)
+      };
+
+      try {
+        const res = await fetch(webhookUrl, {
+          method: 'POST',
+          body: JSON.stringify(safePayload)
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return { saved: true };
+      } catch (err) {
+        console.warn('Unable to save quotation request to Google Sheet:', err);
+        return { saved: false, reason: err.message };
+      }
+    }
+
     /**
      * Handle Bulk Inquiry Form Submission & Generate Instant Reference Ticket
      */
-    function handleInquirySubmit(event) {
+    async function handleInquirySubmit(event) {
       event.preventDefault();
 
       const name = document.getElementById('inq-name').value.trim();
@@ -3567,6 +2713,8 @@
       const requestType = document.getElementById('inq-type').value;
       const notes = document.getElementById('inq-notes').value.trim();
       const errorBanner = document.getElementById('form-error-banner');
+      const submitBtn = document.getElementById('inq-submit-btn');
+      const submitLabel = document.getElementById('inq-submit-label');
 
       if (!name || !company || !email || !phone || !port) {
         errorBanner.textContent = 'Please complete all required buyer and destination port fields marked with *.';
@@ -3625,6 +2773,32 @@
         notes ? `Notes: ${notes}` : ''
       ].filter(Boolean).join('\n');
 
+      if (submitBtn && submitLabel) {
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-75', 'pointer-events-none');
+        submitLabel.textContent = 'Submitting Inquiry...';
+      }
+
+      const sheetResult = await submitInquiryToGoogleSheet({
+        refId,
+        timestamp: nowStr,
+        name,
+        company,
+        email,
+        phone,
+        port,
+        requestType,
+        totalKg,
+        items: itemLines,
+        notes
+      });
+
+      if (submitBtn && submitLabel) {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('opacity-75', 'pointer-events-none');
+        submitLabel.textContent = 'Generate Official Inquiry Ticket';
+      }
+
       appState.lastTicket = { refId, summaryText };
 
       // Populate Ticket Card DOM
@@ -3635,13 +2809,20 @@
       document.getElementById('ticket-contact').textContent = `${email} | ${phone}`;
       document.getElementById('ticket-type').textContent = requestType;
 
+      const ticketStatusEl = document.getElementById('ticket-sync-status');
+      if (ticketStatusEl) {
+        ticketStatusEl.innerHTML = sheetResult.saved
+          ? '<span class="w-2 h-2 rounded-full bg-emerald-600"></span> Shree Kalmeshwara Enterprises &bull; Saved to Records'
+          : '<span class="w-2 h-2 rounded-full bg-emerald-600"></span> Shree Kalmeshwara Enterprises &bull; Registered';
+      }
+
       document.getElementById('ticket-items-list').innerHTML = items.map(i => {
         const kgs = (i.quantityKg || (i.quantityMT ? i.quantityMT * 1000 : 1000)).toLocaleString();
         return `
         <div class="flex items-center justify-between p-3 rounded-xl bg-parchment-50 border border-parchment-200">
           <div>
-            <span class="font-bold text-espresso-900">${i.name}</span>
-            <span class="text-xs text-stone-500 block">${i.form} &bull; ${i.grade}</span>
+            <span class="font-bold text-espresso-900">${escapeHtml(i.name)}</span>
+            <span class="text-xs text-stone-500 block">${escapeHtml(i.form)} &bull; ${escapeHtml(i.grade)}</span>
           </div>
           <span class="font-bold text-crimson-800">${kgs} kg</span>
         </div>
@@ -3650,7 +2831,7 @@
       // Swap Form Card for Ticket Card
       document.getElementById('inquiry-form-card').classList.add('hidden');
       document.getElementById('inquiry-ticket-card').classList.remove('hidden');
-      showToast(`Inquiry Ticket ${refId} generated.`);
+      showToast(sheetResult.saved ? `Inquiry ${refId} saved to Google Sheets.` : `Inquiry Ticket ${refId} generated.`);
     }
 
     /**
@@ -3718,352 +2899,6 @@
       }, 3400);
     }
 
-    /* ===================================================================== */
-    /* CATALOG & PHOTO MANAGER FUNCTIONS (UPLOAD IMAGES & EDIT/ADD DETAILS)  */
-    /* ===================================================================== */
-
-    function openCatalogManager(mode = 'varieties', productId = null) {
-      const modal = document.getElementById('catalog-manager-modal');
-      modal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-
-      confirmResetArmed = false;
-      const resetBtn = document.getElementById('reset-catalog-btn');
-      if (resetBtn) resetBtn.textContent = 'Reset All to Defaults';
-
-      if (mode === 'hero') {
-        switchManagerTab('hero');
-        populateHeroEditorForm();
-      } else {
-        switchManagerTab('varieties');
-        renderManagerVarietyPills(productId || (PRODUCTS[0] && PRODUCTS[0].id));
-        if (mode === 'new') {
-          prepareNewVarietyForm();
-        } else {
-          loadVarietyIntoEditor(productId || (PRODUCTS[0] && PRODUCTS[0].id));
-        }
-      }
-    }
-
-    function closeCatalogManager() {
-      document.getElementById('catalog-manager-modal').classList.add('hidden');
-      document.body.style.overflow = '';
-    }
-
-    function switchManagerTab(tabName) {
-      const varBtn = document.getElementById('tab-btn-varieties');
-      const heroBtn = document.getElementById('tab-btn-hero');
-      const varPanel = document.getElementById('manager-panel-varieties');
-      const heroPanel = document.getElementById('manager-panel-hero');
-
-      if (tabName === 'hero') {
-        heroBtn.className = 'px-4 py-2.5 rounded-t-xl text-xs sm:text-sm font-bold border-b-2 border-crimson-800 text-crimson-800 bg-white';
-        varBtn.className = 'px-4 py-2.5 rounded-t-xl text-xs sm:text-sm font-bold border-b-2 border-transparent text-stone-600 hover:text-espresso-900';
-        heroPanel.classList.remove('hidden');
-        varPanel.classList.add('hidden');
-        populateHeroEditorForm();
-      } else {
-        varBtn.className = 'px-4 py-2.5 rounded-t-xl text-xs sm:text-sm font-bold border-b-2 border-crimson-800 text-crimson-800 bg-white';
-        heroBtn.className = 'px-4 py-2.5 rounded-t-xl text-xs sm:text-sm font-bold border-b-2 border-transparent text-stone-600 hover:text-espresso-900';
-        varPanel.classList.remove('hidden');
-        heroPanel.classList.add('hidden');
-      }
-    }
-
-    function renderManagerVarietyPills(activeId) {
-      const container = document.getElementById('manager-variety-pills');
-      if (!container) return;
-
-      container.innerHTML = PRODUCTS.map(p => {
-        const isSelected = p.id === activeId;
-        return `
-          <button
-            type="button"
-            onclick="loadVarietyIntoEditor('${p.id}')"
-            class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${
-              isSelected
-                ? 'bg-espresso-900 text-white border-espresso-900 shadow-2xs'
-                : 'bg-white text-espresso-800 border-parchment-200 hover:border-crimson-400'
-            }"
-          >
-            ${p.name}
-          </button>
-        `;
-      }).join('');
-    }
-
-    function updateVarietyEditorPreview(imageSrc, fallbackId = 'byadagi-dabbi') {
-      const imgEl = document.getElementById('edit-var-img-preview');
-      const svgEl = document.getElementById('edit-var-svg-preview');
-
-      if (imageSrc) {
-        imgEl.src = imageSrc;
-        imgEl.classList.remove('hidden');
-        svgEl.classList.add('hidden');
-      } else {
-        imgEl.src = '';
-        imgEl.classList.add('hidden');
-        svgEl.classList.remove('hidden');
-        svgEl.innerHTML = getChilliArtworkSVG(fallbackId);
-      }
-    }
-
-    function loadVarietyIntoEditor(productId) {
-      const product = PRODUCTS.find(p => p.id === productId);
-      if (!product) return;
-
-      renderManagerVarietyPills(product.id);
-      confirmDeleteArmed = false;
-
-      document.getElementById('edit-var-id').value = product.id;
-      document.getElementById('edit-var-name').value = product.name;
-      document.getElementById('edit-var-category').value = product.category;
-      document.getElementById('edit-var-badge').value = product.badge;
-      document.getElementById('edit-var-origin').value = product.origin;
-      document.getElementById('edit-var-asta').value = product.asta;
-      document.getElementById('edit-var-shu').value = product.shu;
-      document.getElementById('edit-var-heat').value = product.heatPercent || 35;
-      document.getElementById('edit-var-heat-label').textContent = (product.heatPercent || 35) + '%';
-      document.getElementById('edit-var-moisture').value = product.moisture;
-      document.getElementById('edit-var-packaging').value = product.packaging;
-      document.getElementById('edit-var-desc').value = product.description;
-
-      pendingVarietyImage = product.customImage || '';
-      document.getElementById('edit-var-url').value = pendingVarietyImage.startsWith('http') ? pendingVarietyImage : '';
-      updateVarietyEditorPreview(pendingVarietyImage, product.id);
-
-      const delBtn = document.getElementById('delete-variety-btn');
-      if (PRODUCTS.length > 1) {
-        delBtn.classList.remove('hidden');
-        delBtn.textContent = 'Delete This Variety';
-      } else {
-        delBtn.classList.add('hidden');
-      }
-    }
-
-    function prepareNewVarietyForm() {
-      renderManagerVarietyPills('');
-      confirmDeleteArmed = false;
-
-      document.getElementById('edit-var-id').value = '';
-      document.getElementById('edit-var-name').value = '';
-      document.getElementById('edit-var-category').value = 'high-color';
-      document.getElementById('edit-var-badge').value = '100% Original Lot';
-      document.getElementById('edit-var-origin').value = 'Byadagi, Karnataka';
-      document.getElementById('edit-var-asta').value = '130 – 150 ASTA';
-      document.getElementById('edit-var-shu').value = '20,000 – 30,000 SHU';
-      document.getElementById('edit-var-heat').value = 30;
-      document.getElementById('edit-var-heat-label').textContent = '30%';
-      document.getElementById('edit-var-moisture').value = '< 10.0%';
-      document.getElementById('edit-var-packaging').value = '25kg / 50kg Jute or PP Bags';
-      document.getElementById('edit-var-desc').value = '';
-      document.getElementById('edit-var-url').value = '';
-
-      pendingVarietyImage = '';
-      updateVarietyEditorPreview('', 'byadagi-dabbi');
-      document.getElementById('delete-variety-btn').classList.add('hidden');
-      document.getElementById('edit-var-name').focus();
-    }
-
-    async function handleVarietyImageUpload(event) {
-      const file = event.target.files && event.target.files[0];
-      if (!file) return;
-
-      try {
-        const compressed = await compressUploadedImage(file, 820, 0.82);
-        pendingVarietyImage = compressed;
-        document.getElementById('edit-var-url').value = '';
-        updateVarietyEditorPreview(pendingVarietyImage, document.getElementById('edit-var-id').value || 'byadagi-dabbi');
-        showToast('Photo loaded! Click "Save Chilli Photo & Details" to apply.');
-      } catch (err) {
-        showToast('Could not read the selected image file. Please try another photo.');
-      }
-    }
-
-    function handleVarietyUrlInput(urlVal) {
-      pendingVarietyImage = urlVal.trim();
-      updateVarietyEditorPreview(pendingVarietyImage, document.getElementById('edit-var-id').value || 'byadagi-dabbi');
-    }
-
-    function clearVarietyCustomImage() {
-      pendingVarietyImage = '';
-      document.getElementById('edit-var-url').value = '';
-      document.getElementById('edit-var-file').value = '';
-      updateVarietyEditorPreview('', document.getElementById('edit-var-id').value || 'byadagi-dabbi');
-    }
-
-    function saveVarietyChanges(event) {
-      event.preventDefault();
-
-      const existingId = document.getElementById('edit-var-id').value.trim();
-      const name = document.getElementById('edit-var-name').value.trim();
-      if (!name) {
-        showToast('Please enter a Chilli Variety Name.');
-        return;
-      }
-
-      const category = document.getElementById('edit-var-category').value;
-      const badge = document.getElementById('edit-var-badge').value.trim() || 'Original Export Grade';
-      const origin = document.getElementById('edit-var-origin').value.trim() || 'Byadagi, Karnataka';
-      const asta = document.getElementById('edit-var-asta').value.trim() || '120+ ASTA';
-      const shu = document.getElementById('edit-var-shu').value.trim() || '25,000 SHU';
-      const heatPercent = parseInt(document.getElementById('edit-var-heat').value, 10) || 30;
-      const moisture = document.getElementById('edit-var-moisture').value.trim() || '< 10.0%';
-      const packaging = document.getElementById('edit-var-packaging').value.trim() || '25kg / 50kg Jute or PP Bags';
-      const description = document.getElementById('edit-var-desc').value.trim() || '100% original sun-dried chilli variety graded and Sortex cleaned by Shree Kalmeshwara Enterprises.';
-
-      if (existingId) {
-        const idx = PRODUCTS.findIndex(p => p.id === existingId);
-        if (idx !== -1) {
-          PRODUCTS[idx] = {
-            ...PRODUCTS[idx],
-            name,
-            category,
-            badge,
-            origin,
-            asta,
-            shu,
-            heatPercent,
-            moisture,
-            packaging,
-            description,
-            customImage: pendingVarietyImage
-          };
-        }
-      } else {
-        const newId = 'custom-' + name.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-' + Date.now().toString(36).slice(-4);
-        PRODUCTS.unshift({
-          id: newId,
-          name,
-          category,
-          badge,
-          origin,
-          asta,
-          shu,
-          heatPercent,
-          moisture,
-          packaging,
-          defaultForm: category === 'processed' ? 'Crushed Flakes (2–5mm)' : 'With Stem (Whole)',
-          density20ft: 7.5,
-          density40ft: 15.5,
-          customImage: pendingVarietyImage,
-          description
-        });
-      }
-
-      saveCatalogToStorage();
-      renderProducts();
-      syncEstimatorDropdown();
-      updateEstimator();
-      syncQuoteUI();
-      closeCatalogManager();
-      showToast(`Saved "${name}" with updated photo & specifications!`);
-    }
-
-    function handleDeleteVarietyClick() {
-      const existingId = document.getElementById('edit-var-id').value.trim();
-      const delBtn = document.getElementById('delete-variety-btn');
-      if (!existingId || PRODUCTS.length <= 1) return;
-
-      if (!confirmDeleteArmed) {
-        confirmDeleteArmed = true;
-        delBtn.textContent = 'Click Again to Confirm Delete';
-        return;
-      }
-
-      PRODUCTS = PRODUCTS.filter(p => p.id !== existingId);
-      saveCatalogToStorage();
-      renderProducts();
-      syncEstimatorDropdown();
-      updateEstimator();
-      syncQuoteUI();
-      closeCatalogManager();
-      showToast('Chilli variety removed from catalog.');
-    }
-
-    /* Hero Showcase Editor Functions */
-    function populateHeroEditorForm() {
-      document.getElementById('edit-hero-title').value = HERO_DATA.title;
-      document.getElementById('edit-hero-badge').value = HERO_DATA.badge;
-      document.getElementById('edit-hero-asta').value = HERO_DATA.asta;
-      pendingHeroImage = HERO_DATA.customImage || '';
-      document.getElementById('edit-hero-url').value = pendingHeroImage.startsWith('http') ? pendingHeroImage : '';
-      updateHeroEditorPreview(pendingHeroImage);
-    }
-
-    function updateHeroEditorPreview(src) {
-      const imgEl = document.getElementById('edit-hero-img-preview');
-      const noteEl = document.getElementById('edit-hero-default-note');
-      if (src) {
-        imgEl.src = src;
-        imgEl.classList.remove('hidden');
-        noteEl.classList.add('hidden');
-      } else {
-        imgEl.src = '';
-        imgEl.classList.add('hidden');
-        noteEl.classList.remove('hidden');
-      }
-    }
-
-    async function handleHeroImageUpload(event) {
-      const file = event.target.files && event.target.files[0];
-      if (!file) return;
-      try {
-        const compressed = await compressUploadedImage(file, 900, 0.84);
-        pendingHeroImage = compressed;
-        document.getElementById('edit-hero-url').value = '';
-        updateHeroEditorPreview(pendingHeroImage);
-        showToast('Hero photo loaded! Click "Save Hero Showcase" to apply.');
-      } catch (err) {
-        showToast('Unable to process selected photo.');
-      }
-    }
-
-    function handleHeroUrlInput(urlVal) {
-      pendingHeroImage = urlVal.trim();
-      updateHeroEditorPreview(pendingHeroImage);
-    }
-
-    function clearHeroCustomImage() {
-      pendingHeroImage = '';
-      document.getElementById('edit-hero-url').value = '';
-      updateHeroEditorPreview('');
-    }
-
-    function saveHeroChanges(event) {
-      event.preventDefault();
-      HERO_DATA = {
-        title: document.getElementById('edit-hero-title').value.trim() || DEFAULT_HERO_DATA.title,
-        badge: document.getElementById('edit-hero-badge').value.trim() || DEFAULT_HERO_DATA.badge,
-        asta: document.getElementById('edit-hero-asta').value.trim() || DEFAULT_HERO_DATA.asta,
-        customImage: pendingHeroImage
-      };
-      saveCatalogToStorage();
-      renderHeroShowcase();
-      closeCatalogManager();
-      showToast('Hero showcase photo & details updated!');
-    }
-
-    function handleResetCatalogClick() {
-      const btn = document.getElementById('reset-catalog-btn');
-      if (!confirmResetArmed) {
-        confirmResetArmed = true;
-        btn.textContent = 'Click Again to Confirm Reset';
-        btn.classList.add('bg-crimson-800', 'text-white', 'border-crimson-800');
-        return;
-      }
-
-      localStorage.removeItem(STORAGE_KEY_PRODUCTS);
-      localStorage.removeItem(STORAGE_KEY_HERO);
-      loadCatalogFromStorage();
-      renderHeroShowcase();
-      renderProducts();
-      syncEstimatorDropdown();
-      updateEstimator();
-      syncQuoteUI();
-      closeCatalogManager();
-      showToast('Catalog and photos restored to original defaults.');
-    }
   </script>
 </body>
 </html>
