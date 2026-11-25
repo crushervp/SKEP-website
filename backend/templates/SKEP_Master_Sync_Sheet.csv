@@ -1,0 +1,14 @@
+TYPE,NAME_OR_KEY,VAL1,VAL2,VAL3,VAL4,NOTES
+META,DATE,24 Nov 2026,,,,Market auction date
+META,TOTAL_BAGS,"1,42,850",,,,Total arrival bags
+RATE,DABBI,32000,48000,64000,49500,Low / Med / High / Avg
+RATE,KDL / KADDI,26500,38000,47500,39000,Low / Med / High / Avg
+RATE,GUNTUR,16000,21000,25500,21800,Low / Med / High / Avg
+RATE,2043,28000,42000,53000,43500,Low / Med / High / Avg
+RATE,5531,22500,34000,42000,35000,Low / Med / High / Avg
+IMAGE,byadagi-dabbi,,,,,"Paste Google Drive link for Dabbi photo"
+IMAGE,byadagi-kaddi,,,,,"Paste Google Drive link for Kaddi photo"
+IMAGE,guntur-sannam-s4,,,,,"Paste Google Drive link for Guntur photo"
+IMAGE,teja-s17,,,,,"Paste Google Drive link for Teja photo"
+IMAGE,stemless-flakes,,,,,"Paste Google Drive link for Flakes photo"
+IMAGE,cold-ground-powder,,,,,"Paste Google Drive link for Powder photo"

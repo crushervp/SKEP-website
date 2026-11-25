@@ -1,0 +1,17 @@
+{
+  "name": "skep-dry-chillies-backend",
+  "version": "1.0.0",
+  "description": "Local server and Google Sheets sync proxy for SKEP Dry Chillies",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "skep",
+    "dry-chillies",
+    "byadagi",
+    "google-sheets-sync"
+  ],
+  "author": "Shree Kalmeshwara Enterprises",
+  "license": "ISC"
+}
